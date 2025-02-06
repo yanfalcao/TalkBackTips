@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TalkBack Tips</string>
+    <string name="title_tips_list">Tips to Common TalkBack issues"</string>
+    <string name="grouping_tip">Grouping</string>
+    <string name="title_activity_grouping">Grouping</string>
+    <string name="ungrouped_title">An example of ungrouped elements</string>
+    <string name="grouped_title">An example of grouped elements</string>
+    <string name="recipe_name_example">Apple pie</string>
+    <string name="recipe_prep_time_example">Prep time: 90 min</string>
+    <string name="recipe_servings_example">Servings: 8</string>
+    <string name="cd_back">Back</string>
+</resources>
