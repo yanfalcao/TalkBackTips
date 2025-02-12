@@ -83,6 +83,15 @@ fun TipsList() {
                 text = stringResource(R.string.text_field_tip),
             )
         }
+
+        Button(
+            onClick = { activity.startActivity(Intent(activity, StateChangeActivity::class.java)) },
+            modifier = Modifier.padding(top = 15.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.state_change_tip),
+            )
+        }
     }
 }
 

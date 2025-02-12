@@ -3,12 +3,15 @@
     <string name="title_tips_list">Tips to Common TalkBack issues"</string>
     <string name="grouping_tip">Grouping</string>
     <string name="text_field_tip">Text Field</string>
+    <string name="state_change_tip">State Change</string>
     <string name="title_activity_grouping">Grouping</string>
     <string name="title_activity_text_field">Text Field</string>
     <string name="ungrouped_title">An example of ungrouped elements</string>
     <string name="grouped_title">An example of grouped elements</string>
     <string name="text_field_bad_example">A bad example of text field aligned to TalkBack</string>
     <string name="text_field_good_example">A good example of text field aligned to TalkBack</string>
+    <string name="state_change_good_example">A good example of state change, updating accessibility information</string>
+    <string name="state_change_bad_example">A bad example of state change, not updating accessibility information</string>
     <string name="recipe_name_example">Apple pie</string>
     <string name="recipe_prep_time_example">Prep time: 90 min</string>
     <string name="recipe_servings_example">Servings: 8</string>
@@ -16,4 +19,7 @@
     <string name="first_name">First name</string>
     <string name="cd_enter_first_name">Enter your first name</string>
     <string name="label_first_name">Type here</string>
+    <string name="payment_method">Payment method</string>
+    <string name="title_activity_state_change">StateChangeActivity</string>
+    <string name="favorite">Favorite</string>
 </resources>
