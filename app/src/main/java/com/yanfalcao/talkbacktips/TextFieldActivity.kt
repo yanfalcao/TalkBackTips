@@ -4,22 +4,23 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,24 +28,24 @@ import androidx.compose.ui.unit.dp
 import com.yanfalcao.talkbacktips.ui.theme.TalkBackTipsTheme
 import com.yanfalcao.talkbacktips.widget.DefaultTopAppBar
 
-class GroupingActivity : ComponentActivity() {
+class TextFieldActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             TalkBackTipsTheme {
-                BodyGrouping()
+                BodyTextField()
             }
         }
     }
 }
 
 @Composable
-fun BodyGrouping() {
+fun BodyTextField() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            DefaultTopAppBar(stringResource(R.string.grouping_tip))
+            DefaultTopAppBar(stringResource(R.string.text_field_tip))
         }
     ) { innerPadding ->
         Box(modifier = Modifier
@@ -57,100 +58,94 @@ fun BodyGrouping() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(R.string.ungrouped_title),
+                    text = stringResource(R.string.text_field_bad_example),
                     style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier.padding(bottom = 25.dp),
+                    textAlign = TextAlign.Center
                 )
 
-                UngroupedExample()
+                TextFieldBadExample()
 
                 Text(
-                    text = stringResource(R.string.grouped_title),
+                    text = stringResource(R.string.text_field_good_example),
                     style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier.padding(top = 45.dp ,bottom = 25.dp),
                     textAlign = TextAlign.Center
                 )
 
-                GroupedExample()
+                TextFieldGoodExample()
             }
         }
     }
 }
 
 @Composable
-fun UngroupedExample() {
+fun TextFieldBadExample() {
+    val text = remember { mutableStateOf("") }
+    val typeHereText = stringResource(R.string.label_first_name)
+
     Column(
         modifier =
         Modifier
-            .background(
-                color = MaterialTheme.colorScheme.primary,
-                shape = RoundedCornerShape(size = 15.dp),
-            )
-            .semantics(mergeDescendants = true) {}
             .padding(horizontal = 15.dp, vertical = 15.dp)
             .fillMaxWidth(),
     ) {
         Text(
-            text = stringResource(R.string.recipe_name_example),
-            color = MaterialTheme.colorScheme.background,
+            text = stringResource(R.string.first_name),
             style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 12.dp),
         )
 
-        Text(
-            text = stringResource(R.string.recipe_prep_time_example),
-            color = MaterialTheme.colorScheme.background,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(top = 12.dp),
-        )
-
-        Text(
-            text = stringResource(R.string.recipe_servings_example),
-            color = MaterialTheme.colorScheme.background,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(top = 8.dp),
+        TextField(
+            value = text.value,
+            onValueChange = { text.value = it },
+            label = { Text(typeHereText) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
         )
     }
 }
 
 @Composable
-fun GroupedExample() {
+fun TextFieldGoodExample() {
+    val text = remember { mutableStateOf("") }
+    val cdTextField = stringResource(R.string.cd_enter_first_name)
+    val typeHereText = stringResource(R.string.label_first_name)
+
     Column(
         modifier =
         Modifier
-            .background(
-                color = MaterialTheme.colorScheme.primary,
-                shape = RoundedCornerShape(size = 15.dp),
-            )
             .padding(horizontal = 15.dp, vertical = 15.dp)
-            .fillMaxWidth()
-            .semantics(mergeDescendants = true) {},
+            .fillMaxWidth(),
     ) {
         Text(
-            text = stringResource(R.string.recipe_name_example),
-            color = MaterialTheme.colorScheme.background,
+            text = stringResource(R.string.first_name),
             style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 12.dp),
         )
 
-        Text(
-            text = stringResource(R.string.recipe_prep_time_example),
-            color = MaterialTheme.colorScheme.background,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(top = 12.dp),
-        )
-
-        Text(
-            text = stringResource(R.string.recipe_servings_example),
-            color = MaterialTheme.colorScheme.background,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(top = 8.dp),
+        TextField(
+            value = text.value,
+            onValueChange = { text.value = it },
+            label = {
+                Text(
+                    typeHereText,
+                    modifier = Modifier.semantics {
+                        contentDescription = cdTextField
+                    }
+                )
+            },
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
         )
     }
 }
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun GroupingPreview() {
+fun TextFieldPreview() {
     TalkBackTipsTheme {
-        BodyGrouping()
+        BodyTextField()
     }
 }

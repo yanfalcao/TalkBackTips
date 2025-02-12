@@ -18,6 +18,11 @@
             android:label="@string/title_activity_grouping"
             android:theme="@style/Theme.TalkBackTips" />
         <activity
+            android:name=".TextFieldActivity"
+            android:exported="false"
+            android:label="@string/title_activity_text_field"
+            android:theme="@style/Theme.TalkBackTips" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

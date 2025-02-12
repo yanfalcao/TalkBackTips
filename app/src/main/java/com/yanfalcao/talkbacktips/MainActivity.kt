@@ -74,6 +74,15 @@ fun TipsList() {
                 text = stringResource(R.string.grouping_tip),
             )
         }
+
+        Button(
+            onClick = { activity.startActivity(Intent(activity, TextFieldActivity::class.java)) },
+            modifier = Modifier.padding(top = 15.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.text_field_tip),
+            )
+        }
     }
 }
 

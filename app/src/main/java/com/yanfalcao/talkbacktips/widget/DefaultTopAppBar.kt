@@ -21,7 +21,7 @@ import com.yanfalcao.talkbacktips.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DefaultTopAppBar() {
+fun DefaultTopAppBar(title: String) {
     val activity = LocalActivity.current
 
     CenterAlignedTopAppBar(
@@ -31,7 +31,7 @@ fun DefaultTopAppBar() {
         ),
         title = {
             Text(
-                text = stringResource(R.string.grouping_tip),
+                text = title,
                 style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Start,
                 modifier = Modifier.fillMaxWidth().padding(start = 15.dp)
