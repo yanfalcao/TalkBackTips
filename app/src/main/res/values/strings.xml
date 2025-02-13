@@ -4,6 +4,7 @@
     <string name="grouping_tip">Grouping</string>
     <string name="text_field_tip">Text Field</string>
     <string name="state_change_tip">State Change</string>
+    <string name="custom_actions_tip">Custom Actions</string>
     <string name="title_activity_grouping">Grouping</string>
     <string name="title_activity_text_field">Text Field</string>
     <string name="ungrouped_title">An example of ungrouped elements</string>
@@ -12,6 +13,7 @@
     <string name="text_field_good_example">A good example of text field aligned to TalkBack</string>
     <string name="state_change_good_example">A good example of state change, updating accessibility information</string>
     <string name="state_change_bad_example">A bad example of state change, not updating accessibility information</string>
+    <string name="custom_actions_good_example">A example of custom actions, adding actions to TalkBack</string>
     <string name="recipe_name_example">Apple pie</string>
     <string name="recipe_prep_time_example">Prep time: 90 min</string>
     <string name="recipe_servings_example">Servings: 8</string>
@@ -22,4 +24,7 @@
     <string name="payment_method">Payment method</string>
     <string name="title_activity_state_change">StateChangeActivity</string>
     <string name="favorite">Favorite</string>
+    <string name="title_activity_custom_actions">CustomActionsActivity</string>
+    <string name="add_to_favorite">Add to favorite</string>
+    <string name="remove_from_favorite">Remove from favorite</string>
 </resources>

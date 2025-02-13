@@ -13,6 +13,11 @@
         android:theme="@style/Theme.TalkBackTips"
         tools:targetApi="31">
         <activity
+            android:name=".CustomActionsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_custom_actions"
+            android:theme="@style/Theme.TalkBackTips" />
+        <activity
             android:name=".StateChangeActivity"
             android:exported="false"
             android:label="@string/title_activity_state_change"
